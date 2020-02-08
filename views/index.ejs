@@ -1,0 +1,31 @@
+<%include partials/header.ejs%>
+<div class="container">
+   <header class="jumbotron">
+     <h1>Welcome to Trekspace</h1>
+     <p>Your actions have brought you here</p>
+     <p class="container">
+     <a class="btn btn-primary" href="/compounds/new">Add new place</a>
+     </p>
+   </header>
+
+   <div class="row text-center" style="display:flex; flex-wrap:wrap">
+    <div class="col-sm-12"><blockquote>We missed you master bruce</blockquote></div>
+   
+        <%compound.forEach(function(data){%>
+        <div class= "col-md-3 col-sm-6">
+          <div class="thumbnail">
+             <h4><%=data.name%></h4>
+             <img src ="<%=data.image%>" height="70"/>
+          </div>
+          <p>
+              <a href="/compounds/<%= data._id%>" class="btn btn-primary">More Info</a>
+          </p>
+        </div>
+        <%})%>
+     </div>
+   </div>
+   
+   
+</div>
+
+<%include partials/footer.ejs%>
